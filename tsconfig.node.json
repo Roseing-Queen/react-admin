@@ -25,7 +25,9 @@
       "@/*": ["src/*"]
     },
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-jsx",
+    "types": ["vite/client", "react"]
   },
   "include": ["vite.config.ts"]
 }

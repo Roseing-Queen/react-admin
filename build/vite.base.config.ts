@@ -3,13 +3,14 @@
 import type { UserConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import * as path from "path";
+import {inspectorServer} from "@react-dev-inspector/vite-plugin";
 
 
 // 声明环境变量类型（可选），避免 TypeScript 报错
 declare const __APP_ENV__: string;
 
 const viteBaseConfig: UserConfig = {
-    plugins: [react()], // 添加 React 插件支持
+    plugins: [react(),inspectorServer()], // 添加 React 插件支持
     resolve: {
         extensions: [".tsx", ".ts", ".jsx", ".js"], // 支持的文件扩展名
         alias: {
