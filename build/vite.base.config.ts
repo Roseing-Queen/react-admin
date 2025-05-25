@@ -1,6 +1,6 @@
 // vite.base.config.ts
 
-import { UserConfig } from "vite";
+import type { UserConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import * as path from "path";
 
@@ -13,12 +13,12 @@ const viteBaseConfig: UserConfig = {
     resolve: {
         extensions: [".tsx", ".ts", ".jsx", ".js"], // 支持的文件扩展名
         alias: {
-            '@': path.resolve(__dirname, './src'),
+            '@': path.resolve(__dirname, '../src'),
         },
     },
     define: {
         // 使用 VITE_ 前缀的变量更安全，Vite 默认会暴露这些变量给客户端
-        __APP_ENV__: JSON.stringify(process.env.VITE_APP_ENV),
+        __APP_ENV__: JSON.stringify(process.env.NODE_ENV || "development"),
     },
 };
 

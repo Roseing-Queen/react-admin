@@ -1,5 +1,5 @@
 import {viteBaseConfig} from "./vite.base.config"
-import {UserConfig} from "vite";
+import type {UserConfig} from "vite";
 const dev={
     ...viteBaseConfig,
     server: {
