@@ -1,5 +1,5 @@
 import {Button, Flex, Layout, Menu, theme} from "antd";
-import {Content, Footer, Header} from "antd/es/layout/layout";
+import {Content, Header} from "antd/es/layout/layout";
 import Sider from "antd/es/layout/Sider";
 import {
     MenuFoldOutlined,
@@ -10,16 +10,26 @@ import {
 } from "@ant-design/icons";
 import {useState} from "react";
 import "./styles/index.scss";
+import DreamFooter from "@/layout/modules/DreamFooter/DreamFooter.tsx";
 
 const LayOuts = () => {
     const [collapsed, setCollapsed] = useState(false);
     const tokens = theme.useToken(); // ✅ 正确调用位置
     const {colorBgContainer, borderRadiusLG} = tokens.token;
     return (
-        <Flex>
+        <Flex className={"layout-container"}>
             <Layout className={"layout"}>
                 <Sider trigger={null} collapsible collapsed={collapsed} className={"Slider"}>
-                    <div className="demo-logo-vertical"/>
+                    {!collapsed ? (
+                        <div className="layout-logo-vertical">
+                            <div className={"layout-logo"}></div>
+                            <div className={"layout-logo-text"}>后台管理系统</div>
+                        </div>
+                    ) : (
+                        <div className="layout-logo-vertical">
+                            <div className={"layout-logo"} style={{height:'60px',width:'60px'}}></div>
+                        </div>
+                    )}
                     <Menu
                         theme="light"
                         mode="inline"
@@ -68,9 +78,7 @@ const LayOuts = () => {
                         >
                             CONTENT
                         </Content>
-                        <Footer style={{padding: 0, background: colorBgContainer}} className={"Footer"}>
-                            版权所有  © 2025 天璇的幻梦开发小组  All Rights Reserved.
-                        </Footer>
+                        <DreamFooter/>
                     </Layout>
                 </Layout>
             </Layout>
